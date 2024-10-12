@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 # TODO: Fetch dataset, initialize vectorizer and LSA here
 
-# fetched dataset?? 
+# fetched dataset
 from sklearn.datasets import fetch_20newsgroups
 newsgroups = fetch_20newsgroups(subset='all')
 
@@ -34,7 +34,7 @@ def perform_lsa(tfidf_matrix, n_components):
     return lsa_matrix, explained_variance, svd
 
 # Choose the number of topics/components
-n_topics = 10  # or based on your analysis
+n_topics = 100  # or based on your analysis
 lsa_matrix, explained_variance, svd = perform_lsa(tfidf_matrix, n_topics)
 
 def search_engine(query, vectorizer, svd, lsa_matrix, top_n=5):
